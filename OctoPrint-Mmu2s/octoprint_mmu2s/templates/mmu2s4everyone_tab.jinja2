@@ -1,0 +1,25 @@
+<div class="tab-pane">
+    <div class="jog-panel">
+        <h1>Change Filament</h1>
+        <div class="input-append">
+            {% for i in range(9) %}
+                <button id="changer{{i}}" class="btn btn-secondary" data-bind="click: change({{ i }})">{{ i }}</button>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="jog-panel">
+        <h1>Load Filament</h1>
+        <div class="input-append">
+            {% for i in range(9) %}
+                <button class="btn btn-secondary" id="loader{{i}}" data-bind="click: load({{ i }})">{{ i }}</button>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="jog-panel">
+        <h1>Stealth Mode</h1>
+        <div class="input-append">
+            <button class="btn btn-secondary" data-bind="click: stealth(0)">{{ _('Off') }}</button>
+            <button class="btn btn-secondary" data-bind="click: stealth(1)">{{ _('On') }}</button>
+        </div>
+    </div>
+</div>

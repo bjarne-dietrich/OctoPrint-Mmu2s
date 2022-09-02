@@ -1,0 +1,95 @@
+<h2>MMU 4 Everyone Settings</h2>
+<form class="form-horizontal">
+    <h3>Commands</h3>
+        <div class="control-group">
+            <label class="control-label">Change Filament</label>
+            <div class="controls">
+                <input type="text" class="input-mini" data-bind="value: settings.plugins.mmu2s4everyone.command_config.change_filament">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Load Filament</label>
+            <div class="controls">
+                <input type="text" class="input-mini" data-bind="value: settings.plugins.mmu2s4everyone.command_config.load_filament">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Cut Filament</label>
+            <div class="controls">
+                <input type="text" class="input-mini" data-bind="value: settings.plugins.mmu2s4everyone.command_config.cut_filament">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Command Termination</label>
+            <div class="controls">
+                <label class="checkbox">
+                    <input type="checkbox" data-bind="checked: settings.plugins.mmu2s4everyone.command_config.submit_with_newline"> Send with "newline" ('\n', NL)
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" data-bind="checked: settings.plugins.mmu2s4everyone.command_config.submit_with_carriage_return"> Send with "carriage return" ('\r', CR)
+                </label>
+                <span class="help-block">Choose if the commands sent to the MMU must be terminated</span>
+            </div>
+        </div>
+    <h3>Inputs</h3>
+        <div class="control-group">
+            <label class="control-label">Number of Inputs</label>
+            <div class="controls">
+                <input type="number" max="9" min="1" class="input-mini" data-bind="value: settings.plugins.mmu2s4everyone.channel_config.count">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Starting at</label>
+            <div class="controls">
+                <input type="number" max="9" min="0" class="input-mini" data-bind="value: settings.plugins.mmu2s4everyone.channel_config.first_channel_index">
+            </div>
+        </div>
+
+    <h3>Heartbeat</h3>
+        <div class="control-group">
+            <div class="controls">
+                <label class="checkbox">
+                    <input type="checkbox" data-bind="checked: settings.plugins.mmu2s4everyone.heartbeat_config.use_heartbeat"> Use Heartbeat
+                </label>
+                <span class="help-block">When checked, this Plugin will determine the connection status of the MMU by continuously sending requests.<br>
+                    This is recommended to catch connection issues and pause your print instead of failing.</span>
+            </div>
+        </div>
+        <div class="control-group" data-bind="visible: settings.plugins.mmu2s4everyone.heartbeat_config.use_heartbeat">
+            <label class="control-label">Heartbeat Command</label>
+            <div class="controls">
+                <input type="text" class="input-small" data-bind="value: settings.plugins.mmu2s4everyone.heartbeat_config.heartbeat_command">
+            </div>
+        </div>
+        <div class="control-group" data-bind="visible: settings.plugins.mmu2s4everyone.heartbeat_config.use_heartbeat">
+            <label class="control-label">Heartbeat Interval</label>
+            <div class="controls">
+                <span class="input-append">
+            <input type="number" min="50" max="60000" step="1" class="input-mini" data-bind="value: settings.plugins.mmu2s4everyone.heartbeat_config.heartbeat_interval">
+            <span class="add-on">ms</span>
+        </span>
+
+            </div>
+        </div>
+
+    <h3>Stealth Mode</h3>
+        <div class="control-group">
+            <div class="controls">
+                <label class="checkbox">
+                    <input type="checkbox" data-bind="checked: settings.plugins.mmu2s4everyone.stealth_config.has_stealth">Stealth Mode is supported
+                </label>
+            </div>
+        </div>
+        <div class="control-group" data-bind="visible: settings.plugins.mmu2s4everyone.stealth_config.has_stealth">
+            <label class="control-label">Command: On</label>
+            <div class="controls">
+                <input type="text" class="input-small" data-bind="value: settings.plugins.mmu2s4everyone.stealth_config.stealth_on_command">
+            </div>
+        </div>
+        <div class="control-group" data-bind="visible: settings.plugins.mmu2s4everyone.stealth_config.has_stealth">
+            <label class="control-label">Command: Off</label>
+            <div class="controls">
+                <input type="text" class="input-small" data-bind="value: settings.plugins.mmu2s4everyone.stealth_config.stealth_off_command">
+            </div>
+        </div>
+</form>
